@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Teste Gmaps Marker</title>
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <link rel="stylesheet" href="./index.css">
+        <script src="./main.js"></script>
+
+    </head>
+    
+    <body>
+        <h2>Teste do Gmaps</h2>
+
+        <div id="map"></div>
+
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+        defer
+      ></script>
+        <div id="inps">
+            <input class="inp" type="text" id="la" placeholder="Insira a latidude desejada">
+            <input class="inp" type="text" id="lo" placeholder="Insira a longitude desejada">
+            <button class="inp" type="submit" onclick={getLoc()}></button>
+        </div>
+
+
+
+    </body>
+</html>
