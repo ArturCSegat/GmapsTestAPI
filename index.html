@@ -9,20 +9,23 @@
     </head>
     
     <body>
-        <h2>Teste do Gmaps</h2>
+        <h1>Teste do Gmaps</h1>
 
-        <div id="map"></div>
 
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-        defer
-      ></script>
+        <h3>Insira a coordenada do marcador</h3>
         <div id="inps">
-            <input class="inp" type="text" id="la" placeholder="Insira a latidude desejada">
-            <input class="inp" type="text" id="lo" placeholder="Insira a longitude desejada">
-            <button class="inp" type="submit" onclick={getLoc()}></button>
+            <input class="inp" type="text" id="cord">
+            <button class="inp" type="submit" onclick={getLoc()}>✓</button>
         </div>
 
+        <div class="central">
+            <div id="map"></div>
+
+                    <script
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+                    defer
+            ></script>
+        </div>
 
 
     </body>

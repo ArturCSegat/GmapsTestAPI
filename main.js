@@ -4,15 +4,15 @@ let locations = [
 
 function getLoc(){
 
-    const la = document.getElementById('la');
-    const lo = document.getElementById('lo');
+    const c = document.getElementById('cord');
 
-    const cord = {lat: parseFloat(la.value), lng: parseFloat(lo.value)};
+    const co = c.value.split(" ");
+
+    const cord = {lat: parseFloat(co[0]), lng: parseFloat(co[1])};
 
     locations.push(cord);
 
-    la.value = '';
-    lo.value = '';
+    c.value = "";
 
     initMap()
 
@@ -30,8 +30,8 @@ function initMap() {
 
     // The map, centered at cord
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: new google.maps.LatLng(locations[0].lat, locations[0].lng),
+      zoom: 3,
+      center: new google.maps.LatLng(0, 0),
     });
     // The marker, positioned at cord
 
@@ -45,8 +45,10 @@ function initMap() {
       let marker = new google.maps.Marker({
         position: pos,
         map: map,
+      
       });
 
+      map.zoom = 13;
       map.center = pos;
     }
 
