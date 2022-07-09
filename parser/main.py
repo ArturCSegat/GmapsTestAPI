@@ -2,25 +2,15 @@ import csv
 import json
 
 def getData(path):
-    file = open(path)
+    file = open(path, mode='r', encoding='UTF-8-sig')
 
-    csvreader = csv.reader(file)
+    csvreader = csv.DictReader(file)
 
     postes = []
 
     for row in csvreader:
 
-        p = row[0].split(";")
-
-        if p[1] == "lat":
-            continue
-
-        poste = {int(p[0]) : (float(p[1]), float(p[2]))}
-
-        postes.append(poste)
-
-
-
+        postes.append(row)
         
     return postes
 
@@ -44,11 +34,8 @@ def getData(path):
 def createJSON(data):
 
     jsonFile = open("data.json", "w")
-
-    for i in data:
-        jsonString = json.dumps(i, indent=1)
-        jsonFile.write(jsonString)
-        
+    jsonString = json.dumps(data, indent=4)
+    jsonFile.write(jsonString)
     jsonFile.close()
     print("done")
 
