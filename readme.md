@@ -1,6 +1,6 @@
 # Como usar 
 
-- dentro do arquivo "index.html" inserir uma chave API para o google maps no lugar de "CHAVE"
+- dentro do arquivo "index.html" inserir uma chave API para o google maps no lugar de "CHAVE" (se n tiver chave pede q eu mando")
 
 - criar um documento csv do tipo separado por virgula chamado "data.csv"
 
