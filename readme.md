@@ -4,6 +4,14 @@
 
 - criar um documento csv do tipo separado por virgula chamado "data.csv"
 
+- data.csv deve seguir o seguinte exemplo:
+
+id | x | y
+:--------- | :------: | -------:
+1 | 3.876 | -89.87
+2 | 1.89 | -78.67
+3 | 2.4 | -76
+
 - dentro do repositorio rodar o comando "python parser/conv.py"
 
 - ainda dentro da pasta rodar "python -m http.server"
