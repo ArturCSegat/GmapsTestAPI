@@ -18,5 +18,7 @@ id | x | y
 
 - o site sera hosteado no localhost:8000
 
+- abrir o navegador e entrar em http://localhost:8000
+
 - Assim q o site carregar basta clicar em "Carregar Marcadores"
 
