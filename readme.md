@@ -12,7 +12,7 @@ id | x | y
 2 | 1.89 | -78.67
 3 | 2.4 | -76
 
-- dentro do repositorio rodar o comando "python parser/conv.py"
+- dentro do repositorio rodar o comando "python parser/conv.py"(é neescessario ter python baixado)
 
 - ainda dentro da pasta rodar "python -m http.server"
 
