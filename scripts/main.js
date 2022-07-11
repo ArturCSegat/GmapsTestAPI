@@ -6,7 +6,8 @@ async function readJSON(){
   let coordinateData = await response.json();
 
   for (let i = 0; i<coordinateData.length; i++){
-    delete coordinateData[i][''];
+
+    console.log(coordinateData);
     coordinateData[i]['id'] = parseInt(coordinateData[i]['id']);
     coordinateData[i]['x'] = parseFloat(coordinateData[i]['x']);
     coordinateData[i]['y'] = parseFloat(coordinateData[i]['y']);
@@ -38,12 +39,6 @@ function getLoc(){
 
 function initMap() {
 
-  console.log("Init ran");
-  
-  // The location of cord
-  console.log(locations);
-
-
   // The map, centered at cord
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 3,
@@ -52,10 +47,7 @@ function initMap() {
   // The marker, positioned at cord
 
   for (let i = 0; i<locations.length; i++){
-
-    console.log("a");
-    console.log(locations[i]);
-
+    
     let pos = new google.maps.LatLng(locations[i].lat, locations[i].lng);
 
     let marker = new google.maps.Marker({

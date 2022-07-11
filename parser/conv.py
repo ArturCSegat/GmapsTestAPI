@@ -9,8 +9,17 @@ def getData(path):
     postes = []
 
     for row in csvreader:
+        print(row)
+        val = row["id;x;y"].split(";")
+        n_row = {}
 
-        postes.append(row)
+        n_row['id'] = val[0]
+        n_row['x'] = val[1]
+        n_row['y'] = val[2]
+
+        print(n_row)
+
+        postes.append(n_row)  
         
     return postes
 
