@@ -8,10 +8,9 @@ async function readJSON(){
   for (let i = 0; i<coordinateData.length; i++){
 
     console.log(coordinateData);
-    coordinateData[i]['id'] = parseInt(coordinateData[i]['id']);
-    coordinateData[i]['x'] = parseFloat(coordinateData[i]['x']);
-    coordinateData[i]['y'] = parseFloat(coordinateData[i]['y']);
-    locations.push({lat:coordinateData[i]['x'], lng:coordinateData[i]['y']})
+    latitude = parseFloat(coordinateData[i]['cord'][0]);
+    longitude = parseFloat(coordinateData[i]['cord'][1]);
+    locations.push({lat:latitude, lng:longitude});
   } 
 
   initMap()
@@ -46,7 +45,7 @@ function initMap() {
   });
   // The marker, positioned at cord
 
-  for (let i = 0; i<locations.length; i++){
+  /* for (let i = 0; i<locations.length; i++){
     
     let pos = new google.maps.LatLng(locations[i].lat, locations[i].lng);
 
@@ -58,7 +57,7 @@ function initMap() {
 
     map.zoom = 13;
     map.center = pos;
-  }
+  } */
 
   const line = new google.maps.Polyline({
     path: locations,
