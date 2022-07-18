@@ -1,4 +1,51 @@
-let locations = [];
+let locations = []; 
+
+function sortFunction(a, b) {
+        
+    a = a.distance;
+    b = b.distance;
+    
+    if (a === b) {
+        return 0;
+    }
+    else {
+        return (a < b) ? -1 : 1;
+    }
+}
+ 
+// Function to sort the array of
+// points by its distance from P
+function sortArr(arr, p)
+{
+    // Vector to store the distance
+    // with respective elements
+     
+    let vp = new Array(arr.length);
+    let ds = new Array(arr.length);
+    // Storing the distance with its
+    // distance in the vector array
+    for (let i = 0; i < arr.length; i++) {
+   
+        let dist = Math.pow((p[0] - arr[i].lat), 2)
+              + Math.pow((p[1] - arr[i].lng), 2);
+        vp[i] = {reference:p, distance:Math.sqrt(dist), coord:[arr[i].lat, arr[i].lng]};
+
+        
+        p = vp[i].coord;
+        
+    }
+    
+    vp.sort(sortFunction);
+
+    let loc = new Array(arr.length);
+
+   for(let k = 0; k<arr.length; k++){
+      loc.push({lat: vp[k].coord[0], lng:vp[k].coord[1]});
+    }
+    
+    return loc;
+    
+}
 
 async function readJSON(){
 
@@ -7,32 +54,17 @@ async function readJSON(){
 
   for (let i = 0; i<coordinateData.length; i++){
 
-    console.log(coordinateData);
     latitude = parseFloat(coordinateData[i]['cord'][0]);
     longitude = parseFloat(coordinateData[i]['cord'][1]);
     locations.push({lat:latitude, lng:longitude});
   } 
 
+  new_locations = sortArr(locations, [0, 0]);
+
   initMap()
 
 }
 
-
-function getLoc(){
-
-    const c = document.getElementById('cord');
-
-    const co = c.value.split(" ");
-
-    const cord = {x: parseFloat(co[0]), y: parseFloat(co[1])};
-
-    locations.push(cord);
-
-    c.value = "";
-
-    initMap()
-
-}
 
 // Initialize and add the map
 
@@ -45,10 +77,10 @@ function initMap() {
   });
   // The marker, positioned at cord
 
-  /* for (let i = 0; i<locations.length; i++){
+  /*for (let i = 0; i<locations.length; i++){
     
     let pos = new google.maps.LatLng(locations[i].lat, locations[i].lng);
-
+    console.log(pos)
     let marker = new google.maps.Marker({
       position: pos,
       map: map,
@@ -57,10 +89,11 @@ function initMap() {
 
     map.zoom = 13;
     map.center = pos;
-  } */
+  }*/
 
+  console.log(new_locations)
   const line = new google.maps.Polyline({
-    path: locations,
+    path: new_locations,
     geodesic: true,
     strokeColor: "#FF0000",
     strokeOpacity: 1.0,
